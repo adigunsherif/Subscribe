@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * install functions for the subscribe module
+ */
+
+ /**
+  * Implements hook_schema().
+  */
+function subscribe_schema(){
+  $schema['subscribe_subscriptions'] = array(
+    'description' => 'User subscriptions to content',
+    'fields' => array(
+      'id' => array(
+        'description' => 'The primary identifier for a record.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'mail' => array(
+        'description' => 'The email address of the recipient.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'content_type' => array(
+        'description' => 'The content type of subscribe to.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'timestamp' => array(
+        'description' => 'The time the subscription was made.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('id'),
+    'unique keys' => array(
+      'mail' => array(
+        'mail',
+      ),
+  ),
+  );
+
+  return $schema;
+
+}

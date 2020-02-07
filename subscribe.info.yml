@@ -1,0 +1,6 @@
+name: Subscribe
+description: A custom module for content subscription.
+package: Custom
+
+type: module
+core: 8.x

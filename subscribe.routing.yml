@@ -1,0 +1,10 @@
+subscribe.subscribe:
+  path: '/subscribe'
+  defaults:
+    _form: '\Drupal\subscribe\Form\SubscribeForm'
+    _title: 'Subscribe'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _permission: 'access content'
+
