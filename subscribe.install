@@ -45,7 +45,7 @@ function subscribe_schema(){
       'mail' => array(
         'mail',
       ),
-  ),
+    ),
   );
 
   return $schema;

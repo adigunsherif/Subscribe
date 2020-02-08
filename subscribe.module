@@ -12,7 +12,7 @@
 function subscribe_node_insert(\Drupal\node\NodeInterface $node) {
   $content_type = $node->getType();
 
-  //get subscriptions for this type
+  //Get subscriptions for this type.
   $database = \Drupal::database();
   $subscriptions = $database->query("SELECT mail FROM {subscribe_subscriptions} WHERE content_type = :type", [':type' => $content_type])->fetchCol();
 
@@ -42,8 +42,6 @@ function subscribe_node_insert(\Drupal\node\NodeInterface $node) {
 
   }
 
-
-//  dpm($subscriptions);
 }
 
 /**
@@ -58,7 +56,7 @@ function batch_subscription_send_mail($email, $title, &$context) {
   $params['body'] =  'The content body here.';
 
   $mailManager = \Drupal::service('plugin.manager.mail');
-  $mailManager->mail('subscribe', 'subscribe', $email, $langcode, $params, $reply = NULL, $send = TRUE);
+  $mailManager->mail('subscribe', 'subscribe', $email, $langcode, $params);
 
 }
 
@@ -86,10 +84,10 @@ function batch_subscription_finished($success, $results, $operations) {
 }
 
 /**
- * Implements hook_mail
+ * Implements hook_mail().
  */
 function subscribe_mail($key, &$message, $params) {
-  //todo some  s tuff
+  //todo some stuff
   $language = \Drupal::languageManager()
     ->getLanguage($message['langcode']);
 

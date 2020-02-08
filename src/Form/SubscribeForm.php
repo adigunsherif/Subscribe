@@ -8,19 +8,19 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements form.
  */
-class SubscribeForm extends FormBase{
+class SubscribeForm extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId(){
-    return 'subscribe_form';
+    return 'subscribe_subscribe_form';
   }
 
   /***
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state){
+  public function buildForm(array $form, FormStateInterface $form_state) {
     $type = \Drupal::request()->get('type');
 
     $form['type'] = [
